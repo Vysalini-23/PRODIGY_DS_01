@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodigy Information</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #e803fc;
+            color: #333;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            transition: background 0.3s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar.scrolled {
+            background: linear-gradient(90deg, #4a0eab, #1b5edc);
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        .navbar ul li a:hover {
+            background: white;
+            color: #6a11cb;
+        }
+        .content {
+            padding: 120px 20px;
+            text-align: center;
+        }
+        .section {
+            display: none;
+            padding: 60px;
+            background: #ffd1dc;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section.active {
+            display: block;
+        }
+        h1 {
+            color: #d63384;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #5a0033;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a onclick="showSection('home')">Home</a></li>
+            <li><a onclick="showSection('about')">About</a></li>
+            <li><a onclick="showSection('services')">Services</a></li>
+            <li><a onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+   
+    <div class="content">
+        <div id="home" class="section active">
+            <h1>Welcome to Prodigy Information</h1>
+            <p>Prodigy is a platform that provides insightful and latest information on various topics including technology, education, and innovation.</p>
+        </div>
+        <div id="about" class="section">
+            <h1>About Prodigy</h1>
+            <p>Prodigy is dedicated to delivering knowledge and expertise in various domains. Our goal is to provide valuable insights to our users.</p>
+        </div>
+        <div id="services" class="section">
+            <h1>Our Services</h1>
+            <p>We offer technology insights, educational resources, and innovative solutions to help individuals and businesses grow.</p>
+        </div>
+        <div id="contact" class="section">
+            <h1>Contact Us</h1>
+            <p>Email: contact@prodigy.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </div>
+   
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
+
